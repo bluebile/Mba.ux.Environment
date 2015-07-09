@@ -1,0 +1,37 @@
+{
+    "name": "Mba.ux.Environment",
+    "version": "0.0.1",
+    "homepage": "https://github.com/bluebile/Mba.ux.Environment",
+    "authors": [
+        "Bluebile <info@bluebile.com>"
+    ],
+    "description": "Configuração de ambiente",
+    "main": [
+        "Environment.js"
+    ],
+    "keywords": [
+        "senchatouch",
+        "extjs",
+        "ux",
+        "environment",
+        "ajax",
+        "application"
+    ],
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "demo",
+        "ux",
+        "**/*.*~",
+        "Gruntfile.js",
+        "bower.json",
+        "package.json",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "Mba.ux.BuilderConfig": "v0.0.4"
+    }
+}
