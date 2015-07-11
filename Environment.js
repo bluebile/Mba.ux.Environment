@@ -1,5 +1,5 @@
 Ext.define('Mba.ux.Environment', {
-    requires: [ 'Mba.ux.BuilderConfig', 'Mba.ux.Environment.overrides.BuilderConfig' ],
+    requires: [ 'Mba.ux.BuilderConfig' ],
     singleton: true,
     env: null,
 
