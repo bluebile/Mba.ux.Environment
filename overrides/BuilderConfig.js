@@ -9,6 +9,10 @@ Ext.define('Mba.ux.Environment.overrides.BuilderConfig', {
             return this.callOverridden([id, value]);
         }
 
+        if (!this.data[id]) {
+            this.data[id] = {};
+        }
+
         this.data[id][env] = value;
     },
 
