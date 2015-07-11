@@ -13,15 +13,16 @@ Ext.define('Mba.ux.Environment.overrides.BuilderConfig', {
             this.data[id] = {};
         }
 
+        this.callOverridden([id, value]);
         this.data[id][env] = value;
     },
 
     get: function(id)
     {
-        var env = Mba.ux.Environment.get();
-
+        var env = Mba.ux.Environment.get(),
+            result = this.callOverridden([id]);
         if (env === null) {
-            return this.callOverridden([id]);
+            return result;
         }
 
         return this.data[id][env];
