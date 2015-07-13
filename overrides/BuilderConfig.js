@@ -33,7 +33,6 @@ Ext.define('Mba.ux.Environment.overrides.BuilderConfig', {
         }
 
         if (Ext.isObject(this.data[id]) && this.data[id][env]) {
-            this.validateId(id);
             return this.extractValue(this.data[id][env]);
         }
 
