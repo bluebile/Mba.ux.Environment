@@ -27,12 +27,15 @@ Ext.define('Mba.ux.Environment.overrides.BuilderConfig', {
 
     get: function(id)
     {
-        var env = Mba.ux.Environment.get(),
-            result = this.callOverridden([id]);
+        var env = Mba.ux.Environment.get();
         if (env === null) {
-            return result;
+            return this.callOverridden([id]);
         }
 
-        return this.data[id][env];
+        if (Ext.isObject(this.data[id]) && this.data[id][env]) {
+            return this.extractValue(this.data[id][env]);
+        }
+
+        return this.callOverridden([id]);
     }
 });
