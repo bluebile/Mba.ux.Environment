@@ -32,6 +32,6 @@
         "tests"
     ],
     "dependencies": {
-        "Mba.ux.BuilderConfig": "v0.0.5"
+        "Mba.ux.BuilderConfig": "v0.0.6"
     }
 }
