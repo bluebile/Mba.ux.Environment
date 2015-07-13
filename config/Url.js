@@ -15,11 +15,10 @@ Ext.define('Mba.ux.Environment.config.Url', {
 
     set: function(id, value)
     {
-        var object= {}, merge;
-        object[id] = value
-        merge = Ext.apply(this.getAll(), object);
-
-        return Mba.ux.BuilderConfig.set('url', merge, true);
+        var all = this.getAll(), index;
+        for (index in all) {
+            all[index][id] = value
+        }
     },
 
     has: function(id)
