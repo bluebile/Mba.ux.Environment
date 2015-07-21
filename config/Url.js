@@ -1,5 +1,6 @@
 Ext.define('Mba.ux.Environment.config.Url', {
     singleton: true,
+    requires: [ 'Mba.ux.Environment' ],
     mixins: [
         'Mba.ux.BuilderConfig.mixin.BuilderConfig'
     ],
