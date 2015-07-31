@@ -29,7 +29,7 @@ Ext.define('Mba.ux.Environment.config.Url', {
 
     get: function(id)
     {
-        return Mba.ux.BuilderConfig.get('url')[id];
+        return Mba.ux.BuilderConfig.get('url', id);
     },
 
     getAll: function()

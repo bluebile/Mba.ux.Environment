@@ -25,17 +25,27 @@ Ext.define('Mba.ux.Environment.overrides.BuilderConfig', {
         this.callOverridden([id, value]);
     },
 
-    get: function(id)
+    get: function(id, idExtra)
     {
-        var env = Mba.ux.Environment.get();
+        var env = Mba.ux.Environment.get(),
+            data;
         if (env === null) {
             return this.callOverridden([id]);
         }
 
         if (Ext.isObject(this.data[id]) && this.data[id][env]) {
-            return this.extractValue(this.data[id][env]);
+            data = this.data[id][env];
+            if (typeof idExtra != 'undefined') {
+                data = data[idExtra];
+            }
+            return this.extractValue(data, id);
         }
 
         return this.callOverridden([id]);
+    },
+
+    getExtraValue: function(id, idMain)
+    {
+        return this.get(idMain, id);
     }
 });
