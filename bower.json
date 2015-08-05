@@ -33,6 +33,6 @@
     ],
     "requires": "Mba.ux.Environment.overrides.*",
     "dependencies": {
-        "Mba.ux.BuilderConfig": "v0.0.7"
+        "Mba.ux.BuilderConfig": "v0.0.8"
     }
 }
