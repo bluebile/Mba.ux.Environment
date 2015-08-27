@@ -18,7 +18,7 @@ Ext.define('Mba.ux.Environment.config.Url', {
     {
         var all = this.getAll(), index;
         for (index in all) {
-            all[index][id] = value
+            all[index][id] = value;
         }
     },
 
