@@ -10,7 +10,7 @@ Ext.define('Mba.ux.Environment.overrides.ServerProxy', {
         }
 
         if (this.getNoCache()) {
-            url = Ext.urlAppend(url, Ext.String.format("{0}={1}", this.getCacheString(), Ext.Date.now()));
+            url = Ext.urlAppend(url, Ext.String.format('{0}={1}', this.getCacheString(), Ext.Date.now()));
         }
 
         return url;
