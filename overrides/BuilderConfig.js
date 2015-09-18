@@ -38,6 +38,9 @@ Ext.define('Mba.ux.Environment.overrides.BuilderConfig', {
             if (typeof idExtra != 'undefined') {
                 data = data[idExtra];
             }
+            if (!data) {
+                return '';
+            }
             return this.extractValue(data, id);
         }
 
