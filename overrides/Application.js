@@ -4,7 +4,6 @@ Ext.define('Mba.ux.Environment.overrides.Application', {
 
     initConfig: function(config)
     {
-        this.beforeInitConfig = config.beforeInitConfig || Ext.emptyFn;
         if (config.env) {
             Mba.ux.Environment.set(config.env);
         }
