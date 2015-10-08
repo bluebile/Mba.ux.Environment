@@ -1,6 +1,6 @@
 {
     "name": "Mba.ux.Environment",
-    "version": "0.0.16",
+    "version": "0.0.17",
     "homepage": "https://github.com/bluebile/Mba.ux.Environment",
     "authors": [
         "Bluebile <info@bluebile.com>"
@@ -33,6 +33,6 @@
     ],
     "requires": "Mba.ux.Environment.overrides.*",
     "dependencies": {
-        "Mba.ux.BuilderConfig": "v0.0.12"
+        "Mba.ux.BuilderConfig": "v0.0.13"
     }
 }
