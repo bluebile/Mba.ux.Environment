@@ -1,6 +1,16 @@
 Ext.define('Mba.ux.Environment.overrides.Connection', {
     override: 'Ext.data.Connection',
     requires: [ 'Mba.ux.Environment.config.Url' ],
+    localWp: false,
+
+    getXhrInstance: function()
+    {
+        if (this.localWp) {
+            return new ActiveXObject('Microsoft.XMLHTTP');
+        }
+
+        return this.callOverridden();
+    },
 
     setupUrl: function(options, url)
     {
@@ -25,6 +35,13 @@ Ext.define('Mba.ux.Environment.overrides.Connection', {
             for (var i in options.paramsUrl) {
                 regex = new RegExp('\{' + i + '\}', 'i');
                 url = url.replace(regex, options.paramsUrl[i]);
+            }
+        }
+
+        if (Ext.browser.is.Ripple) {
+            if (url.indexOf('http') == -1 && Ext.os.is.WindowsPhone) {
+                this.localWp = true;
+                url = 'x-wmapp0://www/' + url;
             }
         }
 
