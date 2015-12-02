@@ -2,6 +2,15 @@ Ext.define('Mba.ux.Environment.overrides.Connection', {
     override: 'Ext.data.Connection',
     requires: [ 'Mba.ux.Environment.config.Url' ],
 
+    setupHeaders: function(xhr, options, data, params) 
+    {
+        headers = this.callOverridden(arguments);    
+        if (!headers['Origin'] && options.url) {
+            headers['Origin'] = options.url.replace(/(https?:\/\/.*?)\/.*/g, '$1');
+        }    
+        return headers;
+    },
+    
     setupUrl: function(options, url)
     {
         var form = this.getForm(options);
@@ -25,13 +34,6 @@ Ext.define('Mba.ux.Environment.overrides.Connection', {
             for (var i in options.paramsUrl) {
                 regex = new RegExp('\{' + i + '\}', 'i');
                 url = url.replace(regex, options.paramsUrl[i]);
-            }
-        }
-
-        if (Ext.browser.is.Ripple) {
-            if (url.indexOf('http') == -1 && Ext.os.is.WindowsPhone) {
-                this.localWp = true;
-                url = 'x-wmapp0://www/' + url;
             }
         }
 
