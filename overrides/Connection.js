@@ -1,16 +1,6 @@
 Ext.define('Mba.ux.Environment.overrides.Connection', {
     override: 'Ext.data.Connection',
     requires: [ 'Mba.ux.Environment.config.Url' ],
-    localWp: false,
-
-    getXhrInstance: function()
-    {
-        if (this.localWp) {
-            return new ActiveXObject('Microsoft.XMLHTTP');
-        }
-
-        return this.callOverridden();
-    },
 
     setupUrl: function(options, url)
     {
