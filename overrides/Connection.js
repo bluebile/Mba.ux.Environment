@@ -6,7 +6,7 @@ Ext.define('Mba.ux.Environment.overrides.Connection', {
     {
         headers = this.callOverridden(arguments);    
         if (!headers['Origin']) {
-            headers['Origin'] = 'http://' + location.hostname;
+            headers['Origin'] = location.protocol + '//' + location.hostname;
         }    
         return headers;
     },
