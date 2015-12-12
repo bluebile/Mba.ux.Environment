@@ -5,8 +5,8 @@ Ext.define('Mba.ux.Environment.overrides.Connection', {
     setupHeaders: function(xhr, options, data, params) 
     {
         headers = this.callOverridden(arguments);    
-        if (!headers['Origin'] && options.url) {
-            headers['Origin'] = options.url.replace(/(https?:\/\/.*?)\/.*/g, '$1');
+        if (!headers['Origin']) {
+            headers['Origin'] = 'http://' + location.hostname;
         }    
         return headers;
     },
