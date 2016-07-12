@@ -15,7 +15,7 @@ Ext.define('Mba.ux.Environment.overrides.Controller', {
     },
 
     getServices: function() {
-        return this.getConfig('services') || [];
+        return this.config.services || [];
     },
 
     getFullyQualified: function(items, namespace) {
