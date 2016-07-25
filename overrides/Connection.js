@@ -29,11 +29,18 @@ Ext.define('Mba.ux.Environment.overrides.Connection', {
 
     replaceParamsUrl: function(options, url)
     {
-        var regex;
-        if (options.paramsUrl) {
-            for (var i in options.paramsUrl) {
+        var regex, params;
+        if (options.params) {
+
+            if (typeof(options.params) === 'string'){
+                params = Ext.JSON.decode(options.params);
+            } else {
+                params = options.params;
+            }
+
+            for (var i in params) {
                 regex = new RegExp('\{' + i + '\}', 'i');
-                url = url.replace(regex, options.paramsUrl[i]);
+                url = url.replace(regex, params[i]);
             }
         }
 
