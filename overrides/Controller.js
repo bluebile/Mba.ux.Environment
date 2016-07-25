@@ -29,7 +29,7 @@ Ext.define('Mba.ux.Environment.overrides.Controller', {
             if (Ext.isString(name) && (Ext.Loader.getPrefix(name) === "" || name === appName) &&
                 name.indexOf(':') === -1) {
                 items[i] = appName + '.' + namespace + '.' + name;
-            } else {
+            } else if (typeof name === 'string') {
                 items[i] = name.replace(':', '.' + namespace + '.');
             }
         }
