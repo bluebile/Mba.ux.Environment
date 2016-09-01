@@ -7,10 +7,10 @@ Ext.define('Mba.ux.Environment.overrides.Connection', {
         headers = this.callOverridden(arguments);    
         if (!headers['Origin']) {
             headers['Origin'] = location.protocol + '//' + location.hostname;
-        }    
+        }
         return headers;
     },
-    
+
     setupUrl: function(options, url)
     {
         var form = this.getForm(options);
@@ -41,9 +41,13 @@ Ext.define('Mba.ux.Environment.overrides.Connection', {
             for (var i in params) {
                 regex = new RegExp('\{' + i + '\}', 'i');
                 url = url.replace(regex, params[i]);
+                if (url.match(new RegExp(i, 'g'))) {
+                    delete options.params[i];
+                }
             }
         }
 
         return url;
     }
+
 });
