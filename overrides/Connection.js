@@ -2,9 +2,9 @@ Ext.define('Mba.ux.Environment.overrides.Connection', {
     override: 'Ext.data.Connection',
     requires: [ 'Mba.ux.Environment.config.Url' ],
 
-    setupHeaders: function(xhr, options, data, params) 
+    setupHeaders: function(xhr, options, data, params)
     {
-        headers = this.callOverridden(arguments);    
+        headers = this.callOverridden(arguments);
         if (!headers['Origin']) {
             headers['Origin'] = location.protocol + '//' + location.hostname;
         }
@@ -41,12 +41,11 @@ Ext.define('Mba.ux.Environment.overrides.Connection', {
             for (var i in params) {
                 regex = new RegExp('\{' + i + '\}', 'i');
                 url = url.replace(regex, params[i]);
-                if (url.match(new RegExp(i, 'g'))) {
+                if (url.match(regex)) {
                     delete options.params[i];
                 }
             }
         }
-
         return url;
     }
 

@@ -1,9 +1,9 @@
 {
     "name": "Mba.ux.Environment",
-    "version": "0.0.21",
+    "version": "0.0.23",
     "homepage": "https://github.com/bluebile/Mba.ux.Environment",
     "authors": [
-        "Bluebile <info@bluebile.com>"
+        "Mbamobi <info@bluebile.com>"
     ],
     "description": "Configuração de ambiente",
     "main": [
