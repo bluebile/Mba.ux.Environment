@@ -27,6 +27,23 @@ Ext.define('Mba.ux.Environment.overrides.Connection', {
         return this.replaceParamsUrl(options, url);
     },
 
+    getUrlBase: function(service) {
+        var env = Mba.ux.Environment.get();
+
+        if(service.indexOf(".json") === -1) {
+            if(env === 'production') {
+                var store = Ext.getStore('ConfiguracaoStore');
+                var record = store.getData().all;
+
+                if(record.length > 0) {
+                    return record[0].get('urlBase').toString().concat(service);
+                }
+            }
+        }
+
+        return service;
+    },
+
     replaceParamsUrl: function(options, url)
     {
         var regex, params;
@@ -46,7 +63,7 @@ Ext.define('Mba.ux.Environment.overrides.Connection', {
                 }
             }
         }
-        return url;
+        return this.getUrlBase(url);
     }
 
 });
