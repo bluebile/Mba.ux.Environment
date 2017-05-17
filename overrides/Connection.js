@@ -29,7 +29,7 @@ Ext.define('Mba.ux.Environment.overrides.Connection', {
 
     replaceParamsUrl: function(options, url)
     {
-        var regex, params;
+        var regex, params, test = false;
         if (options.params) {
 
             if (typeof(options.params) === 'string'){
@@ -40,8 +40,9 @@ Ext.define('Mba.ux.Environment.overrides.Connection', {
 
             for (var i in params) {
                 regex = new RegExp('\{' + i + '\}', 'i');
+                test = url.match(regex);
                 url = url.replace(regex, params[i]);
-                if (url.match(regex)) {
+                if (test) {
                     delete options.params[i];
                 }
             }
